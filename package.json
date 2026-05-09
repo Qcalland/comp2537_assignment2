@@ -1,0 +1,29 @@
+{
+  "name": "comp2537_assignment2",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Qcalland/comp2537_assignment2#readme",
+  "bugs": {
+    "url": "https://github.com/Qcalland/comp2537_assignment2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qcalland/comp2537_assignment2.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^6.0.0",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "joi": "^18.2.1",
+    "node": "^26.1.0"
+  }
+}
