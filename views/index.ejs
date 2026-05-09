@@ -1,0 +1,19 @@
+<%- include("templates/header", { title: "Home" }) %>
+
+<h1 class="mb-3">Home</h1>
+
+<% if (authenticated) { %>
+  <p class="mb-3">Hello, <strong><%= name %></strong>.</p>
+  <div class="d-flex flex-wrap gap-2">
+    <a class="btn btn-primary" href="/members">Members</a>
+    <a class="btn btn-outline-secondary" href="/logout">Logout</a>
+  </div>
+<% } else { %>
+  <p class="text-muted mb-3">Welcome.</p>
+  <div class="d-flex flex-wrap gap-2">
+    <a class="btn btn-primary" href="/signup">Sign up</a>
+    <a class="btn btn-outline-primary" href="/login">Log in</a>
+  </div>
+<% } %>
+
+<%- include("templates/footer") %>

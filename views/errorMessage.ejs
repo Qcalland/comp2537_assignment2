@@ -1,0 +1,10 @@
+<%- include("templates/header", { title: "Error" }) %>
+
+<div class="alert alert-danger" role="alert">
+  <div class="fw-semibold mb-1">Error</div>
+  <div><%= error %></div>
+  <hr />
+  <div class="mb-0"><a href="/">Back to home</a></div>
+</div>
+
+<%- include("templates/footer") %>

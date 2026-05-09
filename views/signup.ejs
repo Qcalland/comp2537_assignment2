@@ -1,0 +1,62 @@
+<%- include("templates/header", { title: "Sign up" }) %>
+
+<h1 class="mb-4">Sign up</h1>
+
+<% if (error) { %>
+  <div class="alert alert-danger" role="alert">
+    <div class="fw-semibold mb-1">Sign up failed</div>
+    <div><%= error %></div>
+    <hr />
+    <div class="mb-0">
+      Already have an account? <a href="/login">Log in</a>.
+    </div>
+  </div>
+<% } %>
+
+<form method="POST" action="/signup" class="row g-3" novalidate>
+  <div class="col-12">
+    <label for="name" class="form-label">Name</label>
+    <input
+      id="name"
+      name="name"
+      class="form-control"
+      type="text"
+      autocomplete="name"
+      required
+      value="<%= values?.name ?? '' %>"
+    />
+  </div>
+
+  <div class="col-12">
+    <label for="email" class="form-label">Email</label>
+    <input
+      id="email"
+      name="email"
+      class="form-control"
+      type="email"
+      autocomplete="email"
+      required
+      value="<%= values?.email ?? '' %>"
+    />
+  </div>
+
+  <div class="col-12">
+    <label for="password" class="form-label">Password</label>
+    <input
+      id="password"
+      name="password"
+      class="form-control"
+      type="password"
+      autocomplete="new-password"
+      required
+    />
+    <div class="form-text">Minimum 8 characters.</div>
+  </div>
+
+  <div class="col-12 d-flex flex-wrap gap-2">
+    <button class="btn btn-primary" type="submit">Create account</button>
+    <a class="btn btn-outline-secondary" href="/">Cancel</a>
+  </div>
+</form>
+
+<%- include("templates/footer") %>

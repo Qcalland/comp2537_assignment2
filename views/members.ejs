@@ -1,0 +1,52 @@
+<%- include("templates/header", { title: "Members" }) %>
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+  <div>
+    <h1 class="mb-1">Members</h1>
+    <div class="text-muted">Hello, <strong><%= name %></strong>.</div>
+  </div>
+  <a class="btn btn-outline-secondary" href="/logout">Logout</a>
+</div>
+
+<div class="row g-3">
+  <div class="col-12 col-md-4">
+    <div class="card h-100">
+      <img
+        class="card-img-top"
+        src="/1.png"
+        alt="Member 1"
+      />
+      <div class="card-body">
+        <h5 class="card-title mb-0">Member 1</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <div class="card h-100">
+      <img
+        class="card-img-top"
+        src="/2.png"
+        alt="Member 2"
+      />
+      <div class="card-body">
+        <h5 class="card-title mb-0">Member 2</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <div class="card h-100">
+      <img
+        class="card-img-top"
+        src="/3.png"
+        alt="Member 3"
+      />
+      <div class="card-body">
+        <h5 class="card-title mb-0">Member 3</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("templates/footer") %>

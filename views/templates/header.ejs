@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="/vendor/bootstrap/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <title><%= (typeof title !== "undefined" && title) ? `${title} · Assignment 2` : "Assignment 2" %></title>
+</head>
+<body>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+      >
+        <span class="fs-4">Assignment 2</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a
+            href="/"
+            class="nav-link <%= path === '/' ? 'active' : '' %>"
+            <%= path === '/' ? 'aria-current="page"' : '' %>
+          >Home</a>
+        </li>
+
+        <% if (authenticated) { %>
+          <li class="nav-item">
+            <a
+              href="/members"
+              class="nav-link <%= path === '/members' ? 'active' : '' %>"
+              <%= path === '/members' ? 'aria-current="page"' : '' %>
+            >Members</a>
+          </li>
+
+          <% if (user_type === "admin") { %>
+            <li class="nav-item">
+              <a
+                href="/admin"
+                class="nav-link <%= path === '/admin' ? 'active' : '' %>"
+                <%= path === '/admin' ? 'aria-current="page"' : '' %>
+              >Admin</a>
+            </li>
+          <% } %>
+
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">Logout</a>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a
+              href="/login"
+              class="nav-link <%= path === '/login' ? 'active' : '' %>"
+              <%= path === '/login' ? 'aria-current="page"' : '' %>
+            >Log in</a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="/signup"
+              class="nav-link <%= path === '/signup' ? 'active' : '' %>"
+              <%= path === '/signup' ? 'aria-current="page"' : '' %>
+            >Sign up</a>
+          </li>
+        <% } %>
+      </ul>
+    </header>
+  </div>
+
+  <main class="container py-4">

@@ -1,0 +1,18 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.user_type %></td>
+  <td class="text-end">
+    <% if (user.user_type === "admin") { %>
+      <form action="/admin/demote" method="POST" class="d-inline">
+        <input type="hidden" name="email" value="<%= user.email %>" />
+        <button type="submit" class="btn btn-sm btn-outline-danger">Demote</button>
+      </form>
+    <% } else { %>
+      <form action="/admin/promote" method="POST" class="d-inline">
+        <input type="hidden" name="email" value="<%= user.email %>" />
+        <button type="submit" class="btn btn-sm btn-outline-primary">Promote</button>
+      </form>
+    <% } %>
+  </td>
+</tr>
