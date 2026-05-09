@@ -27,6 +27,26 @@ const mongodb_session_secret = process.env.MONGODB_SESSION_SECRET;
 const node_session_secret = process.env.NODE_SESSION_SECRET;
 /* END secret section */
 
+const requiredEnvVars = [
+  "MONGODB_HOST",
+  "MONGODB_USER",
+  "MONGODB_PASSWORD",
+  "MONGODB_USER_DATABASE",
+  "MONGODB_SESSION_DATABASE",
+  "MONGODB_SESSION_SECRET",
+  "NODE_SESSION_SECRET",
+];
+const missingEnvVars = requiredEnvVars.filter((name) => !process.env[name]);
+if (missingEnvVars.length > 0) {
+  console.error(
+    "Missing required environment variables: " + missingEnvVars.join(", "),
+  );
+  console.error(
+    "Add them in the Render dashboard: Service → Environment → Environment Variables (or use a .env file locally).",
+  );
+  process.exit(1);
+}
+
 const { database } = include("databaseConnection");
 const userCollection = database.db(mongodb_user_database).collection("users");
 
@@ -327,4 +347,7 @@ async function start() {
   });
 }
 
-start();
+start().catch((err) => {
+  console.error("Server failed to start:", err);
+  process.exit(1);
+});
